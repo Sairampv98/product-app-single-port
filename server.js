@@ -29,9 +29,9 @@ app.use('/api', categoryRoutes);
 app.use('/api', companyRoutes);
 app.use('/api', productRoutes);
 
-app.use(express.static(path.join(__dirname, '../client/dist')));
+app.use(express.static(path.join(__dirname, '../client/build')));
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/', 'dist', 'index.html'));
+  res.sendFile(path.join(__dirname, '../client/', 'build', 'index.html'));
 });
 
 // Error handling middleware
