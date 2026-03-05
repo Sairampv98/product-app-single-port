@@ -33,7 +33,12 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: .
+          path: |
+            server.js
+            package.json
+            package-lock.json
+            client/dist
+
 
   deploy:
     runs-on: ubuntu-latest
@@ -62,4 +67,6 @@ jobs:
           app-name: 'Azure-single-port'
           slot-name: 'Production'
           package: .
+      
+
           
