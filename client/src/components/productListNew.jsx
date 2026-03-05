@@ -15,7 +15,7 @@ import ProductCard from "./ProductCard";
 
 function ProductListNew() {
     const axiosClient = axios.create({
-        baseURL: "http://localhost:5000/api",
+        baseURL: "/api",
     });
     const [totalProduct, setTotalProduct] = useState(undefined);
     const [productList, setProducts] = useState([]);

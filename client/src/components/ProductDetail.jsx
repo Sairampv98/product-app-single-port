@@ -7,7 +7,7 @@ function ProductDetail() {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api')
+    fetch('/api')
       .then(response => response.json())
       .then(data => {
         const foundProduct = data.find(product => product.id.toString() === id);
