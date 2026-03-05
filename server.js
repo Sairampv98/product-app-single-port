@@ -29,8 +29,11 @@ app.use('/api', categoryRoutes);
 app.use('/api', companyRoutes);
 app.use('/api', productRoutes);
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+// Serve static assets with no long cache during debugging/deploys
+app.use(express.static(path.join(__dirname, 'client/build'), { maxAge: 0 }));
 app.get('*', (req, res) => {
+  // Force browsers to revalidate index.html so updated bundles are picked up
+  res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
   res.sendFile(path.join(__dirname, 'client/', 'build', 'index.html'));
 });
 
